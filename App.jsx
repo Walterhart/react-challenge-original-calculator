@@ -87,12 +87,9 @@ export default function App() {
       b. All of the other properties of currentCalc should be preserved. 
                         
 ---------------Write your code for task 1 below.------------------------------------------------*/  
-          
-          
-          
-          
-          
-   
+				setCurrentCalc(prevCalc => {
+					return { ...prevCalc, currentNum: [...prevCalc.currentNum, numFromClick] }
+				})
 /*-------------Write your code for task 1 above.------------------------------------------------*/
           
           } else if (conditionFive) {
@@ -105,12 +102,7 @@ export default function App() {
       b. All of the other properties of currentCalc should be reverted to their initial values, 
          which are saved in INITIAL_STATE (line 9 above).
              
----------------Write your code for task 2 below.------------------------------------------------*/        
-          
-          
-          
-          
-          
+---------------Write your code for task 2 below.------------------------------------------------*/        		setCurrentCalc(prevCal=> ({...INITIAL_STATE, currentCalc: [numFromClick]}))	    
 /*-------------Write your code for task 2 above.------------------------------------------------*/
 
           } else if (conditionSix) {
@@ -131,8 +123,14 @@ export default function App() {
       c. The value of operation (a string) should be preserved. 
                        
 ---------------Write your code for task 3 below.------------------------------------------------*/
-              
-              
+            setCurrentCalc(prevCalc => {
+				return {
+					previousNum: [prevCalc.result],
+					result: [], 
+					currentNum: [numFromClick],
+					operation: prevCalc.operation
+				}
+			})
               
 
 
